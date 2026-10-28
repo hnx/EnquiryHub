@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Enquiry Hub</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@200;300&display=swap">
+<style>
+:root{--bg:#fff;--fg:#000;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html,body{margin:0;min-height:100%}
+html{font-size:14px}
+body{background:var(--bg);color:var(--fg);font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-weight:300;display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+header{margin:0 16px;padding:20px 0 14px;text-align:center;border-bottom:3px double var(--fg)}
+h1{margin:0;font-size:1.2rem;font-weight:200;letter-spacing:.14em;text-transform:uppercase;text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
+main{flex:1;padding:16px}
+.title{margin:28px 0 12px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+details.acc{max-width:none;margin:0 0 8px;border:1px solid #000}
+details.acc summary{padding:8px 12px;font-size:.85rem}
+details.acc summary:focus-visible{outline-color:#000}
+.row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 12px 8px}
+.row button{flex:0 0 calc((100% - 36px)/4);scroll-snap-align:start;min-height:0;padding:3px 6px;font:inherit;font-size:.7rem;line-height:1.3;background:#fff;color:#000;border:1px solid #000;cursor:pointer}
+.row button:hover,.row button:focus-visible{background:#000;color:#fff;outline:0}
+details.acc[open] summary::after,details.acc summary::after{content:none}
+.sbtn{font:inherit;font-size:.7rem;background:#fff;color:#000;border:1px solid #000;padding:2px 10px;cursor:pointer}
+.sbtn:hover,.sbtn:focus-visible{background:#000;color:#fff;outline:0}
+.q{display:block;width:calc(100% - 24px);margin:8px 12px 0;padding:6px 8px;font:inherit;font-size:.8rem;background:#fff;color:#000;border:1px solid #000}
+.q[hidden]{display:none}
+h2.gap{margin-top:20px}
+.row.fit button{flex:0 0 auto;white-space:nowrap;padding:3px 14px}
+.row.fit button[aria-expanded="true"]{background:#000;color:#fff}
+.wall{display:grid;grid-template-rows:0fr;margin:0 12px;background:#000;transition:grid-template-rows .3s ease,margin .3s ease}
+.wall.open{grid-template-rows:1fr;margin-bottom:12px}
+.wallin{min-height:0;overflow:hidden;visibility:hidden;transition:visibility .3s}
+.wall.open .wallin{visibility:visible}
+.btns{display:flex;flex-wrap:wrap;gap:6px;padding:12px;max-height:260px;overflow-y:auto}
+.btns button{font:inherit;font-size:.7rem;line-height:1.3;padding:3px 8px;background:#000;color:#fff;border:1px solid #fff;cursor:pointer}
+.btns button:hover,.btns button:focus-visible{background:#fff;color:#000;outline:0}
+.wall{color-scheme:dark}
+.wsearch{display:flex;gap:6px;padding:12px 12px 0}
+.wsearch input{flex:1;min-width:0;font:inherit;font-size:.7rem;padding:3px 8px;background:#000;color:#fff;border:1px solid #fff;border-radius:0}
+.wsearch input::placeholder{color:#fff;opacity:1;font-style:italic}
+.wsearch button{font:inherit;font-size:.7rem;padding:3px 10px;background:#000;color:#fff;border:1px solid #fff;cursor:pointer}
+.wsearch button:hover,.wsearch button:focus-visible{background:#fff;color:#000;outline:0}
+main[hidden]{display:none}
+h1 a{color:inherit;text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
+#about p{max-width:720px;margin:0 0 14px;font-size:.8rem;line-height:1.7}
+#about a{color:#000}
+.sections a{text-decoration:none}
+.brand{max-width:720px;margin:0 auto;padding:20px 0 4px}
+.bname{font-size:.95rem;letter-spacing:.14em;text-transform:uppercase}
+.bsub{margin-top:4px;font-size:.75rem}
+.sechead{flex:0 0 100%;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+#about a:hover{background:#000;color:#fff}
+#about h3{margin:18px 0 8px;font-size:.9rem;font-weight:300}
+.tabs{margin-bottom:12px}
+.tab{display:inline-block;padding:0;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+.carousel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+.post{flex:0 0 100%;height:140px;border:1px solid #000;display:grid;place-items:center;scroll-snap-align:start;font-size:.8rem}
+footer{background:#000;color:#fff;padding:0 16px calc(12px + env(safe-area-inset-bottom,0px))}
+.sections{max-width:720px;margin:0 auto;padding:12px 0;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.85rem;font-weight:300}
+.part{max-width:720px;margin:0 auto 10px;text-align:left;font-size:.8rem}
+.copy{max-width:720px;margin:0 auto;padding-top:10px;text-align:left;font-size:.75rem}
+details{max-width:720px;margin:0 auto}
+summary{cursor:pointer;list-style:none;padding:12px 0;font-size:.85rem;font-weight:300;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+
+summary:focus-visible,a:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.panel{padding-bottom:16px}
+h2{margin:0 0 8px;font-size:.8rem;font-weight:300}
+.wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;border:1px solid #fff;font-size:.8rem}
+td{padding:6px 12px;border:1px solid #fff;text-align:left}
+td:first-child{width:40%;font-weight:300}
+a{color:#fff;text-decoration:underline;text-underline-offset:.2em}
+a:hover{background:#fff;color:#000}
+</style>
+</head>
+<body>
+<header><h1><a href="#">Enquiry Hub</a></h1></header>
+<main id="home">
+<div class="tabs" id="updates" role="tablist"><span class="tab" role="tab" aria-selected="true">Updates</span></div>
+<div class="carousel" role="tabpanel" tabindex="0" aria-label="Updates">
+<div class="post">Enter updates section</div>
+</div>
+<section aria-labelledby="gallery">
+<div class="title" id="gallery">Organized Inquiry Gallery</div>
+<details class="acc" open>
+<summary>Academic Subjects<button type="button" class="sbtn">Search</button></summary>
+<input type="search" class="q" placeholder="Search" aria-label="Search Academic Subjects" hidden>
+<div class="row">
+<button type="button">Mathematics</button>
+<button type="button">Computer Science</button>
+<button type="button">Physics</button>
+<button type="button">Chemistry</button>
+<button type="button">Life Sciences</button>
+<button type="button">Astronomy</button>
+<button type="button">Arts</button>
+<button type="button">Literature</button>
+<button type="button">Economics</button>
+<button type="button">Social Sciences</button>
+</div>
+</details>
+<details class="acc" open>
+<summary>Academic Systems<button type="button" class="sbtn">Search</button></summary>
+<input type="search" class="q" placeholder="Search" aria-label="Search Academic Systems" hidden>
+<div class="row fit">
+<button type="button" data-wall="wall-comp" aria-expanded="false">Academic Competitions &amp; Entrance Examinations</button>
+<button type="button" data-wall="wall-boards" aria-expanded="false">Academic Education Boards</button>
+<button type="button" data-wall="wall-institutions" aria-expanded="false">Specific Institutions</button>
+</div>
+<div class="wall" id="wall-comp"><div class="wallin"><div class="wsearch"><input type="search" placeholder="Search" aria-label="Search"><button type="button">Search</button></div><div class="btns">
+<button type="button">International Mathematical Olympiad</button><button type="button">International Physics Olympiad</button><button type="button">International Chemistry Olympiad</button><button type="button">International Biology Olympiad</button><button type="button">International Olympiad in Informatics</button><button type="button">International Olympiad on Astronomy and Astrophysics</button><button type="button">International Astronomy Olympiad</button><button type="button">International Geography Olympiad</button><button type="button">International Earth Science Olympiad</button><button type="button">International Linguistics Olympiad</button><button type="button">International Junior Science Olympiad</button><button type="button">International Philosophy Olympiad</button><button type="button">International Economics Olympiad</button><button type="button">European Girls’ Mathematical Olympiad</button><button type="button">Asian Pacific Mathematics Olympiad</button>
+<button type="button">American Mathematics Competitions 8</button><button type="button">American Mathematics Competitions 10</button><button type="button">American Mathematics Competitions 12</button><button type="button">American Invitational Mathematics Examination</button><button type="button">United States of America Junior Mathematical Olympiad</button><button type="button">United States of America Mathematical Olympiad</button><button type="button">Pre-Regional Mathematical Olympiad</button><button type="button">Regional Mathematical Olympiad</button><button type="button">Indian National Mathematical Olympiad</button><button type="button">Indian Olympiad Qualifier in Mathematics</button><button type="button">United Kingdom Mathematics Trust Intermediate Challenge</button><button type="button">United Kingdom Mathematics Trust Senior Challenge</button><button type="button">British Mathematical Olympiad Round 1</button><button type="button">British Mathematical Olympiad Round 2</button>
+<button type="button">F=ma</button><button type="button">United States of America Physics Olympiad</button><button type="button">National Standard Examination in Physics</button><button type="button">Indian National Physics Olympiad</button><button type="button">British Physics Olympiad Round 1</button><button type="button">British Physics Olympiad Round 2</button>
+<button type="button">United States National Chemistry Olympiad</button><button type="button">National Standard Examination in Chemistry</button><button type="button">Indian National Chemistry Olympiad</button><button type="button">United Kingdom Chemistry Olympiad</button>
+<button type="button">United States of America Biology Olympiad Open Exam</button><button type="button">United States of America Biology Olympiad Semifinal</button><button type="button">National Standard Examination in Biology</button><button type="button">Indian National Biology Olympiad</button>
+<button type="button">United States of America Computing Olympiad</button><button type="button">Indian National Olympiad in Informatics</button><button type="button">Zonal Computing Olympiad</button><button type="button">United States of America Astronomy and Astrophysics Olympiad</button><button type="button">National Standard Examination in Astronomy</button><button type="button">Indian National Astronomy Olympiad</button><button type="button">National Standard Examination in Junior Science</button>
+<button type="button">Putnam</button><button type="button">Simon Marais Mathematics Competition</button><button type="button">Harvard-Massachusetts Institute of Technology Mathematics Tournament</button><button type="button">Stanford Mathematics Tournament</button>
+<button type="button">SAT</button><button type="button">ACT</button><button type="button">Joint Entrance Examination Main</button><button type="button">Joint Entrance Examination Advanced</button><button type="button">National Eligibility cum Entrance Test Undergraduate</button><button type="button">Birla Institute of Technology and Science Admission Test</button><button type="button">Common University Entrance Test Undergraduate</button><button type="button">Graduate Aptitude Test in Engineering</button><button type="button">Graduate Record Examinations</button><button type="button">Gaokao</button><button type="button">Zhongkao</button><button type="button">Suneung</button><button type="button">Common Test for University Admissions</button><button type="button">Indian Statistical Institute Entrance Examination</button><button type="button">Chennai Mathematical Institute Entrance Examination</button><button type="button">Sixth Term Examination Paper</button><button type="button">Mathematics Admissions Test</button><button type="button">Physics Aptitude Test</button><button type="button">Thinking Skills Assessment</button><button type="button">University Clinical Aptitude Test</button><button type="button">Law School Admission Test</button><button type="button">Graduate Management Admission Test</button><button type="button">Medical College Admission Test</button><button type="button">Common Admission Test</button><button type="button">Common Law Admission Test</button><button type="button">National Defence Academy Examination</button><button type="button">Joint Admission Test for Masters</button>
+</div></div></div>
+<div class="wall" id="wall-boards"><div class="wallin"><div class="wsearch"><input type="search" placeholder="Search" aria-label="Search"><button type="button">Search</button></div><div class="btns">
+<button type="button">International Baccalaureate</button><button type="button">Cambridge International Education</button><button type="button">The College Board</button><button type="button">Pearson Edexcel</button><button type="button">Assessment and Qualifications Alliance</button><button type="button">Oxford, Cambridge and Royal Society of Arts Examinations</button><button type="button">Welsh Joint Education Committee</button><button type="button">Scottish Qualifications Authority</button><button type="button">Council for the Curriculum, Examinations and Assessment</button><button type="button">Central Board of Secondary Education</button><button type="button">Council for the Indian School Certificate Examinations</button><button type="button">National Institute of Open Schooling</button><button type="button">New York State Education Department</button><button type="button">Victorian Curriculum and Assessment Authority</button><button type="button">New South Wales Education Standards Authority</button><button type="button">New Zealand Qualifications Authority</button><button type="button">Singapore Examinations and Assessment Board</button><button type="button">Hong Kong Examinations and Assessment Authority</button><button type="button">West African Examinations Council</button>
+</div></div></div>
+<div class="wall" id="wall-institutions"><div class="wallin"><div class="wsearch"><input type="search" placeholder="Search" aria-label="Search"><button type="button">Search</button></div><div class="btns">
+<button type="button">United States of America</button><button type="button">Canada</button><button type="button">Switzerland</button><button type="button">Germany</button><button type="button">United Kingdom</button>
+<button type="button">Afghanistan</button><button type="button">Albania</button><button type="button">Algeria</button><button type="button">Andorra</button><button type="button">Angola</button><button type="button">Antigua and Barbuda</button><button type="button">Argentina</button><button type="button">Armenia</button><button type="button">Australia</button><button type="button">Austria</button><button type="button">Azerbaijan</button><button type="button">Bahamas</button><button type="button">Bahrain</button><button type="button">Bangladesh</button><button type="button">Barbados</button><button type="button">Belarus</button><button type="button">Belgium</button><button type="button">Belize</button><button type="button">Benin</button><button type="button">Bhutan</button><button type="button">Bolivia</button><button type="button">Bosnia and Herzegovina</button><button type="button">Botswana</button><button type="button">Brazil</button><button type="button">Brunei</button><button type="button">Bulgaria</button><button type="button">Burkina Faso</button><button type="button">Burundi</button><button type="button">Cabo Verde</button><button type="button">Cambodia</button><button type="button">Cameroon</button><button type="button">Central African Republic</button><button type="button">Chad</button><button type="button">Chile</button><button type="button">China</button><button type="button">Colombia</button><button type="button">Comoros</button><button type="button">Congo</button><button type="button">Costa Rica</button><button type="button">Côte d’Ivoire</button><button type="button">Croatia</button><button type="button">Cuba</button><button type="button">Cyprus</button><button type="button">Czechia</button><button type="button">Democratic Republic of the Congo</button><button type="button">Denmark</button><button type="button">Djibouti</button><button type="button">Dominica</button><button type="button">Dominican Republic</button><button type="button">Ecuador</button><button type="button">Egypt</button><button type="button">El Salvador</button><button type="button">Equatorial Guinea</button><button type="button">Eritrea</button><button type="button">Estonia</button><button type="button">Eswatini</button><button type="button">Ethiopia</button><button type="button">Fiji</button><button type="button">Finland</button><button type="button">France</button><button type="button">Gabon</button><button type="button">Gambia</button><button type="button">Georgia</button><button type="button">Ghana</button><button type="button">Greece</button><button type="button">Grenada</button><button type="button">Guatemala</button><button type="button">Guinea</button><button type="button">Guinea-Bissau</button><button type="button">Guyana</button><button type="button">Haiti</button><button type="button">Holy See</button><button type="button">Honduras</button><button type="button">Hungary</button><button type="button">Iceland</button><button type="button">India</button><button type="button">Indonesia</button><button type="button">Iran</button><button type="button">Iraq</button><button type="button">Ireland</button><button type="button">Israel</button><button type="button">Italy</button><button type="button">Jamaica</button><button type="button">Japan</button><button type="button">Jordan</button><button type="button">Kazakhstan</button><button type="button">Kenya</button><button type="button">Kiribati</button><button type="button">Kuwait</button><button type="button">Kyrgyzstan</button><button type="button">Laos</button><button type="button">Latvia</button><button type="button">Lebanon</button><button type="button">Lesotho</button><button type="button">Liberia</button><button type="button">Libya</button><button type="button">Liechtenstein</button><button type="button">Lithuania</button><button type="button">Luxembourg</button><button type="button">Madagascar</button><button type="button">Malawi</button><button type="button">Malaysia</button><button type="button">Maldives</button><button type="button">Mali</button><button type="button">Malta</button><button type="button">Marshall Islands</button><button type="button">Mauritania</button><button type="button">Mauritius</button><button type="button">Mexico</button><button type="button">Micronesia</button><button type="button">Moldova</button><button type="button">Monaco</button><button type="button">Mongolia</button><button type="button">Montenegro</button><button type="button">Morocco</button><button type="button">Mozambique</button><button type="button">Myanmar</button><button type="button">Namibia</button><button type="button">Nauru</button><button type="button">Nepal</button><button type="button">Netherlands</button><button type="button">New Zealand</button><button type="button">Nicaragua</button><button type="button">Niger</button><button type="button">Nigeria</button><button type="button">North Korea</button><button type="button">North Macedonia</button><button type="button">Norway</button><button type="button">Oman</button><button type="button">Pakistan</button><button type="button">Palau</button><button type="button">State of Palestine</button><button type="button">Panama</button><button type="button">Papua New Guinea</button><button type="button">Paraguay</button><button type="button">Peru</button><button type="button">Philippines</button><button type="button">Poland</button><button type="button">Portugal</button><button type="button">Qatar</button><button type="button">Romania</button><button type="button">Russia</button><button type="button">Rwanda</button><button type="button">Saint Kitts and Nevis</button><button type="button">Saint Lucia</button><button type="button">Saint Vincent and the Grenadines</button><button type="button">Samoa</button><button type="button">San Marino</button><button type="button">Sao Tome and Principe</button><button type="button">Saudi Arabia</button><button type="button">Senegal</button><button type="button">Serbia</button><button type="button">Seychelles</button><button type="button">Sierra Leone</button><button type="button">Singapore</button><button type="button">Slovakia</button><button type="button">Slovenia</button><button type="button">Solomon Islands</button><button type="button">Somalia</button><button type="button">South Africa</button><button type="button">South Korea</button><button type="button">South Sudan</button><button type="button">Spain</button><button type="button">Sri Lanka</button><button type="button">Sudan</button><button type="button">Suriname</button><button type="button">Sweden</button><button type="button">Syria</button><button type="button">Tajikistan</button><button type="button">Tanzania</button><button type="button">Thailand</button><button type="button">Timor-Leste</button><button type="button">Togo</button><button type="button">Tonga</button><button type="button">Trinidad and Tobago</button><button type="button">Tunisia</button><button type="button">Türkiye</button><button type="button">Turkmenistan</button><button type="button">Tuvalu</button><button type="button">Uganda</button><button type="button">Ukraine</button><button type="button">United Arab Emirates</button><button type="button">Uruguay</button><button type="button">Uzbekistan</button><button type="button">Vanuatu</button><button type="button">Venezuela</button><button type="button">Vietnam</button><button type="button">Yemen</button><button type="button">Zambia</button><button type="button">Zimbabwe</button>
+</div></div></div>
+</details>
+</section>
+</main>
+<main id="about" hidden>
+<div class="title">Enquiry Hub</div>
+<p>Enquiry Hub is a community-oriented project under <a href="https://hnx.github.io/PEFFUS" target="_blank" rel="noopener">PEFFUS Network</a>. It provides a gallery of enquiries across academic and other areas, including subject-related doubts, conceptual questions, systems-related enquiries, and various other forms of enquiry.</p>
+<p>We document and preserve enquiries without providing explanations or altering their original essence. Enquiries contributed by the community are stored as submitted, forming part of our textual database. Anyone can register an enquiry through our platform.</p>
+<div class="title">Types of Galleries</div>
+<p>Enquiry Hub maintains two types of galleries: the Unorganised Gallery and the Organised Gallery.</p>
+<h3>Unorganised Gallery</h3>
+<p>The Unorganised Gallery contains our internal enquiry logs. Each enquiry is recorded in its original form and assigned an identifier using the format “#Inquiry_[Number]” or “#Inquiry[Number]”.</p>
+<p>These logs serve as the initial records from which enquiries are processed for inclusion in the Organised Gallery. Public access to the Unorganised Gallery is not generally provided.</p>
+<h3>Organised Gallery</h3>
+<p>The Organised Gallery contains enquiries organised by our team. Our team processes the recorded entries, organising their constituent tokens into a structured gallery while preserving the original essence of each enquiry.</p>
+<div class="title">Source Attribution</div>
+<p>Where a contributor explicitly requests attribution, we may record the source of an enquiry, subject to the applicable submission and attribution practices.</p>
+</main>
+<footer>
+<div class="brand"><div class="bname">Enquiry Hub</div><div class="bsub">The Gallery of Inquiries</div></div>
+<div class="sections"><div class="sechead">Sections</div><a href="#about">About</a><a href="#updates">Updates</a></div>
+<details>
+<summary>Connect With Enquiry Hub</summary>
+<div class="panel">
+<h2>Digital Media Platforms</h2>
+<div class="wrap">
+<table>
+<tr><td>YouTube</td><td><a href="https://www.youtube.com/@EnquiryHub" target="_blank" rel="noopener">@EnquiryHub</a></td></tr>
+<tr><td>X</td><td><a href="https://x.com/TheEnquiryHub" target="_blank" rel="noopener">@TheEnquiryHub</a></td></tr>
+</table>
+</div>
+<h2 class="gap">Contact Us</h2>
+<div class="wrap">
+<table>
+<tr><td>General Purposes</td><td></td></tr>
+<tr><td>Submit Queries</td><td></td></tr>
+</table>
+</div>
+</div>
+</details>
+<p class="part">Enquiry Hub is part of <a href="https://hnx.github.io/PEFFUS/#departments" target="_blank" rel="noopener">PEFFUS Communities</a></p>
+<p class="copy">&copy; 2026 Enquiry Hub. All rights reserved.</p>
+</footer>
+<script>
+document.querySelectorAll('details.acc').forEach(function(d){var b=d.querySelector('.sbtn'),q=d.querySelector('.q'),items=d.querySelectorAll('.row button');b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();d.open=true;q.hidden=false;q.focus()});q.addEventListener('input',function(){var v=q.value.trim().toLowerCase();items.forEach(function(i){i.hidden=!i.textContent.toLowerCase().includes(v)})})});
+document.querySelectorAll('[data-wall]').forEach(function(t){var w=document.getElementById(t.dataset.wall);t.addEventListener('click',function(){var o=w.classList.toggle('open');t.setAttribute('aria-expanded',o)})});
+document.querySelectorAll('.wall').forEach(function(w){var ws=w.querySelector('.wsearch'),wi=ws.querySelector('input'),wb=ws.querySelector('button'),wItems=w.querySelectorAll('.btns button');var wf=function(){var v=wi.value.trim().toLowerCase();wItems.forEach(function(i){i.hidden=!i.textContent.toLowerCase().includes(v)})};wi.addEventListener('input',wf);wb.addEventListener('click',function(){wf();wi.focus()})});
+function route(){var a=location.hash==='#about';document.getElementById('about').hidden=!a;document.getElementById('home').hidden=a;if(location.hash==='#updates'){document.getElementById('updates').scrollIntoView()}else{window.scrollTo(0,0)}}
+window.addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
