@@ -1,0 +1,4 @@
+the formula 2n^2 is calculate maximum number of electrons
+a principal energy level (shell) can accomodate.
+
+but I wonder does it also includes subshells within that shell? or just the Principal Energy Level (shell).
