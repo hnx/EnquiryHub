@@ -1,0 +1,13 @@
+I’m trying to understand a particular aspect of Wilson’s theorem: how can the result of a modulo operation be expressed as -1 when remainders are supposed to be non-negative?
+For example, suppose we choose the prime number 7. According to Wilson’s theorem:
+6! ≡ -1 (mod 7)
+Now, calculating the factorial:
+6! = 720
+Dividing 720 by 7 gives a quotient of 102 and a remainder of 6.
+720 = 7 × 102 + 6
+Therefore, 720 mod 7 = 6.
+If we divide this remainder, 6, by 7 again, we get a quotient of 0 and a remainder of 6.
+I understand that the actual remainder is 6, but I don’t understand how Wilson’s theorem arrives at -1.
+ChatGPT clarified that -1 does not become the actual remainder; rather, it is another integer representation of the same remainder because -1 and 6 differ by 7.
+However, I still don’t fully understand this clarification.
+How does -1 become an equivalent representation of the remainder 6? Why are we allowed to express a modulo result as a negative number when the actual remainder cannot be negative?
