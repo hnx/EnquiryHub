@@ -1,0 +1,11 @@
+Can we use any vertex angle to calculate the sine ratio in a triangle?
+
+Can we choose any vertex angle of a triangle (x, y, z) and use the same pair of sides, AB as the opposite side and CD as the hypotenuse, to calculate its sine?
+
+For example:
+
+- sin(x) = AB/CD
+- sin(y) = AB/CD
+- sin(z) = AB/CD
+
+Or does the opposite side change depending on which vertex angle we choose, even though the hypotenuse remains the same?
