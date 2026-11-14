@@ -1,0 +1,23 @@
+15b + 8 ≡ 2 (mod 7)
+
+Simplifying further:
+
+15b ≡ −6 (mod 7)
+
+We dismiss 15 and replace it with its remainder, 1, since 15 = 7(2) + 1.
+
+So we're left with:
+
+b ≡ −6 (mod 7)
+
+Now, here's the doubt I'm facing:
+
+Notice that −6 = 7(−1) + 1.
+
+I didn't know that negative numbers could also be expressed this way, with a remainder of 1, just like positive numbers.
+
+So does this mean we can replace −6 with 1 as well?
+
+Therefore:
+
+b ≡ 1 (mod 7)
