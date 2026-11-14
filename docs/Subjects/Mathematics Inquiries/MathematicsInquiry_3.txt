@@ -1,0 +1,5 @@
+If 6a ≡ 2 (mod 5), why can we simplify it to a ≡ 2 (mod 5)?
+ I understand that 6 ≡ 1 (mod 5),
+ but I don't understand the mathematical justification 
+for replacing 6 with 1.
+ It feels arbitrary.
