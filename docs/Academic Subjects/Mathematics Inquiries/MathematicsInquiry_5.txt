@@ -1,0 +1,9 @@
+When calculating the GCD of more than two terms, such as gcd(a₁, a₂, ..., a₇₇), can we divide the calculation into pairs?
+
+For example:
+
+gcd(gcd(76, 41), gcd(1, 37))
+
+My query is whether we can continue grouping the terms in this manner. For instance, after calculating gcd(1, 37), can we pair it with another term, such as (1, 68) or (37, 73)?
+
+In other words, are there any restrictions on how we group and repeat GCD calculations?
