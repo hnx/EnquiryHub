@@ -1,0 +1,5 @@
+The centroid of a triangle is the point where all three medians intersect, dividing each median in the ratio 2:1.
+
+However, my doubt is: which segment gets the 2, and which gets the 1?
+
+For example, is the segment from the vertex to the centroid the part with ratio 2, while the remaining segment, stretching from the centroid to the midpoint of the opposite side, gets ratio 1?
