@@ -1,0 +1,4 @@
+Is it correct that, in chemical equations, when more than one element 
+is present in a chemical formula, the coefficient represents the 
+number of molecules of the entire compound rather 
+than the number of atoms of the particular element it is placed before?
