@@ -1,0 +1,3 @@
+Does a median bisect the angle at the vertex from which it extends? Or is it only responsible for bisecting the opposite side?
+
+In other words, does a median always bisect the opposite side, and does it also bisect the angle at its originating vertex?
