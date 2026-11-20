@@ -1,1 +1,20 @@
+I’m just using this particular Java program as an example. The program displays every consecutive integer from 1 to the user-provided input.
 
+import java.util.Scanner;
+
+class Problem1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter N: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print(i + " ");
+        }
+    }
+}
+
+My understanding is that if we place a "print" statement inside a loop's curly brackets, it will be executed repeatedly with each iteration. However, if we place it outside the loop's curly brackets, it will execute only once, displaying the value of the variable at that point (for example, "i = 1").
+
+Is my understanding correct?
