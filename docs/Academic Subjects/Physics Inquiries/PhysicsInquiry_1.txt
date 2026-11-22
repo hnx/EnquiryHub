@@ -1,2 +1,28 @@
+For an ideal Atwood machine, we make the following assumptions:
 
-hh
+* The string is massless and inextensible.
+
+* The pulley is massless.
+
+* The pulley axle is frictionless.
+
+* There is no slipping between the string and the pulley.
+
+We define m₂ > m₁. Therefore:
+
+* m₂ accelerates downwards due to gravity, while the string tension pulls it upwards.
+
+* m₁ accelerates upwards due to the string tension, while gravity pulls it downwards.
+
+Without providing any context, ChatGPT gave me these two equations:
+
+T − m₁g = m₁a
+
+m₂g − T = m₂a
+
+It then added the two equations and arrived at:
+
+a = \[(m₂ − m₁)g\] / (m₁ + m₂)
+
+I haven't quite understood this part. The transition from the two equations to the final expression feels like a mathematical jump. I'd like to understand the intermediate algebraic steps and the reasoning behind adding the equations.
+
