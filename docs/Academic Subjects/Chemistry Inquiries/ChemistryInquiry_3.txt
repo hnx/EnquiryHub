@@ -1,0 +1,17 @@
+When we electrolyse molten NaCl, the overall reaction is:
+
+2NaCl → 2Na + Cl₂
+
+How do we derive this equation from the beginning? Specifically:
+
+* Why is there a coefficient 2 before NaCl?
+
+* Why is there a coefficient 2 before Na?
+
+* Why is there a subscript 2 in Cl₂?
+
+* How do we know when to use coefficients versus subscripts?
+
+* What fundamental chemical principles determine these numbers when constructing a chemical equation?
+
+I want to understand how the entire equation is derived, rather than memorising the final balanced equation.
