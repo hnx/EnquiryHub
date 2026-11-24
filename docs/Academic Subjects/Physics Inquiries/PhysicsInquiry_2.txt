@@ -1,1 +1,5 @@
+When an electric current flows through a copper wire, how exactly do the electrons move through the metal?
 
+Do the mobile electrons physically pass between copper atoms, or are they delocalised throughout the metallic structure and move independently of individual atoms under the influence of an electric field?
+
+In other words, what is the actual physical mechanism that allows electrons to travel through a solid copper wire without being passed from one atom to another?
