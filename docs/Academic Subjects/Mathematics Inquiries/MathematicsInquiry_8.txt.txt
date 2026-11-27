@@ -1,0 +1,17 @@
+According to the theorem, the areas of two similar triangles are proportional to the squares of their corresponding sides.
+
+If:
+
+∆ ABC ~ ∆ DEF
+
+Then:
+
+[ABC]/[DEF] = (AB/DE)²
+
+I understand that we can use any pair of corresponding sides in the equation, as permitted by the theorem.
+
+However, my query concerns the matching order in the formula itself.
+
+For example, why is AB placed in the numerator rather than DE? Is it specifically because triangle ABC appears in the numerator of the area ratio, while triangle DEF appears in the denominator?
+
+In other words, does the order of the triangles in the area ratio determine the order of their corresponding sides in the squared ratio?
